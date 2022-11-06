@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> couter: <span id="counter">0</span></h1>
+    <button id="increment"> click </button>
+    <!-- <button id="decrement"> click </button> -->
+
+
+    <ul id="list-items"> </ul>
+
+    <script>
+       
+
+const incrementButton = document.querySelector('#increment')
+ const decrementButton = document.querySelector('#decrement')
+const counterElement = document.getElementById('counter')
+const ulElement = document.getElementById('list-items')
+let counter = 0
+
+
+function addCounter()
+{
+counter++
+counterElement.innerText = counter
+
+console.log('Run')
+
+    const li = document.createElement('li')
+    li.innerText= '<b> I will not eat apples </b>' + counter
+    // const b = document.createElement('b')
+    // const textNode = document.createTextNode('Eat_apples' + counter)
+   
+    // b.appendChild(textNode)
+    // li.appendChild(b)
+    ulElement.appendChild(li)
+}
+
+
+// function subCounter(){
+// counter--
+// counterElement.innerText = counter
+
+// console.log('Run')
+// }
+incrementButton.addEventListener('click',addCounter)
+// decrementButton.addEventListener('click', subCounter)
+
+
+</script>
+
+    
+</body>
+</html>
