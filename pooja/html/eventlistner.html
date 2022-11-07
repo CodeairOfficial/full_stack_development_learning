@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Event Listener</title>
+    </head>
+    <body>
+        <link rel="stylesheet" href="eventlistener.css">
+        <h1> Counter: <span id="counter">0</span></h1>
+        <button id="increment" class="bg">Increase</button>
+        <button id="decrement" class="bg1">Decrease</button> 
+        <ul id="list-items"></ul>
+        <script>
+            const incrementButton = document.querySelector('#increment')
+            const decrementButton = document.querySelector('#decrement')
+            const counterElement = document.getElementById('counter')
+            const ulElement = document.getElementById('list-items')
+            let counter = 0
+
+            function addCounter()                                                           //function 
+            {
+                counter++
+                counterElement.innerText = counter
+                console.log('Run')
+
+                const li = document.createElement('li')                                     //create element
+                li.innerText = 'No Momos' + counter
+
+                li.setAttribute('data-counter',counter)                                  
+                const b = document.createElement('b')                                       //create element
+                const textNode = document.createTextNode('M_momos_khaungi' + counter)       //create element
+                b.appendChild(textNode)                                                     //bold append
+                li.appendChild(b)                                                           //list append
+
+                ulElement.appendChild(li)                                                   //append element
+            }
+
+            function subCounter()
+            {
+                counter--
+                counterElement.innerText = counter
+                console.log('Run')
+
+                const li = ulElement.querySelector('[data-counter="'+counter+'"]')
+                li.remove()
+
+                const eliminate = parseInt(li.getAttribute('data-counter'),10)
+                if(eliminate % 2 === 0)
+                {
+                    li.remove()
+                }
+                else
+                {
+                    li.remove()
+                }
+            }
+            incrementButton.addEventListener('click',addCounter)
+            decrementButton.addEventListener('click',subCounter)
+            
+        </script>
+    </body>
+</html>
